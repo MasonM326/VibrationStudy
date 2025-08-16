@@ -6,11 +6,7 @@ displacement = input("What is the intial displacement of the block in meters")
 velocity = input("What is the initial velocity in m/s^2?")
 %time_final = "What do you want your final t to be?"
 
-DE = diff(x,t,2)*mass == spring_stiffness*x;
-
-Dx = diff(x,t);
-
-eom = dsolve(DE, x(0) == displacement , Dx(0) == velocity)
+eom = displacement * cos(sqrt(spring_stiffness / mass) * time) + (velocity / sqrt(spring_stiffness / mass)) * sin(sqrt(spring_stiffness / mass) * time)
 
 fplot(eom)
 
